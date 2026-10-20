@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parv Grover | Developer & Designer</title>
+  <!-- Fonts: Instrument Serif (big headings) + DM Sans (body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Slim menu: hidden on the front page, slides in when you scroll down -->
+  <nav class="nav" id="nav">
+    <a href="#top" class="nav-logo">PG</a>
+    <a href="#skills">Skills</a><a href="#about">About</a><a href="#work">Work</a>
+    <a href="#provide">Services</a><a href="#why">Why me</a>
+    <a href="#hire" class="nav-hire">Hire me</a>
+  </nav>
+
+  <!-- ================= 1. FRONT PAGE ================= -->
+  <header class="hero" id="top">
+
+    <!-- Contact row (EDIT these four) -->
+    <ul class="hero-contact">
+      <li>you@example.com</li>
+      <li>@yourhandle</li>
+      <li>behance.net/yourname</li>
+      <li>+00 000 000 0000</li>
+    </ul>
+
+    <p class="hero-intro">Parv Grover’s<br><em>Selected</em> Work</p>
+
+    <!-- The 3D folder. Layers (back to front): back panel, logo tiles, front panel, tags -->
+    <div class="stage">
+      <div class="folder" id="folder">
+
+        <!-- Back panel of the folder -->
+        <svg class="layer back" viewBox="0 0 600 480">
+          <path d="M20 60Q20 30 50 30H215L265 70H550Q580 70 580 100V430Q580 460 550 460H50Q20 460 20 430Z"
+            fill="#FFDC4D" />
+          <path d="M48 98H552V440H48Z" fill="#000" />
+        </svg>
+
+        <!-- Tech logos: their lower half hides behind the front panel, so they look half outside -->
+        <div class="tiles">
+          <div class="tile t1" style="--c:#ED7843"><svg viewBox="0 0 100 100">
+              <path d="M12 8H88L81 84L50 94L19 84Z" fill="#fff" /><text x="50" y="68" text-anchor="middle"
+                font-size="52" font-weight="700" fill="#ED7843">5</text>
+            </svg></div>
+          <div class="tile t2" style="--c:#C788FF"><svg viewBox="0 0 100 100">
+              <path d="M12 8H88L81 84L50 94L19 84Z" fill="#fff" /><text x="50" y="68" text-anchor="middle"
+                font-size="52" font-weight="700" fill="#C788FF">3</text>
+            </svg></div>
+          <div class="tile t3" style="--c:#FFDC4D"><svg viewBox="0 0 100 100"><text x="50" y="68" text-anchor="middle"
+                font-size="52" font-weight="700" fill="#000">JS</text></svg></div>
+          <div class="tile t4" style="--c:#fff"><svg viewBox="0 0 100 100">
+              <rect x="14" y="12" width="46" height="46" rx="16" fill="#53B080" />
+              <rect x="40" y="42" width="46" height="46" rx="16" fill="#FFDC4D" />
+              <circle cx="30" cy="28" r="4" fill="#fff" />
+              <circle cx="70" cy="72" r="4" fill="#000" />
+            </svg></div>
+          <div class="tile t5" style="--c:#53B080"><svg viewBox="0 0 100 100">
+              <path d="M50 10L86 30V70L50 90L14 70V30Z" fill="#fff" /><text x="50" y="64" text-anchor="middle"
+                font-size="40" font-weight="700" fill="#53B080">N</text>
+            </svg></div>
+        </div>
+
+        <!-- Front panel of the folder -->
+        <svg class="layer front" viewBox="0 0 600 480">
+          <path d="M40 150Q40 130 70 130L560 118Q585 118 585 143V440Q585 465 555 465H70Q40 465 40 440Z"
+            fill="#FFDC4D" />
+        </svg>
+
+        <!-- Role tags on the folder -->
+        <span class="role r1">Web Developer</span>
+        <span class="role r2">UI/UX Designer</span>
+        <span class="role r3">Graphic Designer</span>
+      </div>
+    </div>
+
+    <h1 class="hero-title">Port<em>folio</em></h1>
+    <p class="hero-update">Update v.1.0</p>
+    <p class="hero-year" aria-label="2026"><span>2</span><span>0</span><span>2</span><span>6</span></p>
+
+    <!-- Moving band (JS copies the item to fill the whole width) -->
+    <div class="band" aria-hidden="true">
+      <div class="band-track" id="track">
+        <div class="band-item">
+          <span class="band-logo">PG</span>
+          <svg class="band-arrow" viewBox="0 0 60 16">
+            <path d="M0 8H56M49 1L57 8L49 15" fill="none" stroke="#000" stroke-width="2" />
+          </svg>
+          <span>Parv Grover’s Portfolio Folder</span>
+          <svg class="band-arrow" viewBox="0 0 60 16">
+            <path d="M0 8H56M49 1L57 8L49 15" fill="none" stroke="#000" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= 2. SKILLS ================= -->
+    <section class="section dark" id="skills">
+      <div class="wrap">
+        <h2 class="reveal">Skills</h2>
+        <p class="lead reveal">The tools I use every day. Hover a tile to tilt it.</p>
+        <div class="skills">
+          <div class="tilt reveal" style="--c:#ED7843">
+            <h3>Web development</h3>
+            <p>HTML, CSS, JavaScript and Node.js</p>
+          </div>
+          <div class="tilt reveal" style="--c:#53B080">
+            <h3>Python</h3>
+            <p>Scripts, automation, data</p>
+          </div>
+          <div class="tilt reveal" style="--c:#C788FF">
+            <h3>C++</h3>
+            <p>Algorithms, data structures, tools</p>
+          </div>
+          <div class="tilt reveal" style="--c:#FF8EBA">
+            <h3>Graphic design</h3>
+            <p>UI/UX, branding, posters</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. ABOUT ================= -->
+    <section class="section light" id="about">
+      <div class="wrap two">
+        <!-- Photo box: put your photo at images/me.jpg -->
+        <div class="photo reveal"><img src="images/me.jpg" alt="Parv Grover" onerror="this.remove()"><span>Your
+            photo</span></div>
+        <div class="reveal">
+          <h2>About me</h2>
+          <p class="lead">Write two or three sentences about who you are, where you are based and what you care about
+            when you build things.</p>
+          <p class="lead">Add a second paragraph: your background, education, or how you started.</p>
+          <ul class="facts">
+            <li><b>Based in</b> Your city</li>
+            <li><b>Experience</b> Your years</li>
+            <li><b>Languages</b> Your languages</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. WORK =================
+     Copy one <a class="project"> block per project. Images go in images/ -->
+    <section class="section dark" id="work">
+      <div class="wrap">
+        <h2 class="reveal">Work</h2>
+        <p class="lead reveal">Selected projects.</p>
+        <div class="works">
+          <a href="#" class="project tilt reveal" style="--c:#FFDC4D">
+            <div class="project-img"><img src="images/work-1.jpg" alt="" onerror="this.remove()"><span>Add image</span>
+            </div>
+            <h3>Project name</h3>
+            <p>Short description. Tools used.</p>
+          </a>
+          <a href="#" class="project tilt reveal" style="--c:#FF8EBA">
+            <div class="project-img"><img src="images/work-2.jpg" alt="" onerror="this.remove()"><span>Add image</span>
+            </div>
+            <h3>Project name</h3>
+            <p>Short description. Tools used.</p>
+          </a>
+          <a href="#" class="project tilt reveal" style="--c:#53B080">
+            <div class="project-img"><img src="images/work-3.jpg" alt="" onerror="this.remove()"><span>Add image</span>
+            </div>
+            <h3>Project name</h3>
+            <p>Short description. Tools used.</p>
+          </a>
+          <a href="#" class="project tilt reveal" style="--c:#C788FF">
+            <div class="project-img"><img src="images/work-4.jpg" alt="" onerror="this.remove()"><span>Add image</span>
+            </div>
+            <h3>Project name</h3>
+            <p>Short description. Tools used.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. WHAT I PROVIDE ================= -->
+    <section class="section light" id="provide">
+      <div class="wrap">
+        <h2 class="reveal">What I provide</h2>
+        <dl class="rows">
+          <div class="reveal">
+            <dt>Websites</dt>
+            <dd>Portfolios, landing pages and business sites that are fast and work on every screen.</dd>
+          </div>
+          <div class="reveal">
+            <dt>Web apps and back-ends</dt>
+            <dd>Dashboards, forms and APIs built with JavaScript and Node.js.</dd>
+          </div>
+          <div class="reveal">
+            <dt>Scripts and software</dt>
+            <dd>Python and C++ programs that automate tasks or process data.</dd>
+          </div>
+          <div class="reveal">
+            <dt>UI/UX design</dt>
+            <dd>Wireframes and finished interface designs in Figma.</dd>
+          </div>
+          <div class="reveal">
+            <dt>Graphic design</dt>
+            <dd>Logos, brand identity, posters and social media graphics.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= 6. WHY CHOOSE ME ================= -->
+    <section class="section dark" id="why">
+      <div class="wrap">
+        <h2 class="reveal">Why choose me</h2>
+        <div class="compare reveal">
+          <div class="col">
+            <h3>A typical hire</h3>
+            <p>Designer and developer are different people</p>
+            <p>Handover gaps between design and code</p>
+            <p>Updates when asked</p>
+            <p>Code only its author understands</p>
+          </div>
+          <div class="col me">
+            <h3>Working with me</h3>
+            <p>One person designs and builds it</p>
+            <p>What is designed is what is built</p>
+            <p>Regular progress updates</p>
+            <p>Commented, readable code</p>
+          </div>
+        </div>
+        <p class="lead reveal">Add proof here: client names, results, or a short testimonial.</p>
+      </div>
+    </section>
+
+    <!-- ================= 7. HIRE ME ================= -->
+    <section class="section pink" id="hire">
+      <div class="wrap two">
+        <div class="reveal">
+          <h2>Hire me</h2>
+          <p class="lead">Describe your project, budget and deadline. State your availability here, for example: “Taking
+            new projects from November.”</p>
+          <p class="mail">you@example.com</p>
+        </div>
+        <!-- Form opens the visitor's email app (see script.js) -->
+        <form id="form" class="reveal">
+          <label>Name <input name="name" required></label>
+          <label>Email <input type="email" name="email" required></label>
+          <label>What do you need? <textarea name="message" rows="4" required></textarea></label>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><span>© <span id="year"></span> Parv Grover</span><a href="#top">Back to top</a></footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

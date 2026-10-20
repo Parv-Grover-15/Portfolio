@@ -1,0 +1,772 @@
+/* ===== 1. COLOURS & FONTS (only the palette you gave) ===== */
+:root {
+  --pink: #FF8EBA;
+  --red: #D44B43;
+  --green: #53B080;
+  --orange: #ED7843;
+  --yellow: #FFDC4D;
+  --purple: #C788FF;
+  --black: #000;
+  --white: #fff;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "DM Sans", system-ui, sans-serif;
+  --pad: clamp(1.2rem, 5vw, 4rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+ul {
+  list-style: none
+}
+
+:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px
+}
+
+/* ===== 2. FRONT PAGE ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  padding: 0 var(--pad)
+}
+
+.hero-contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.6rem;
+  font-size: .8rem;
+  flex-wrap: wrap
+}
+
+.hero-intro {
+  position: absolute;
+  left: var(--pad);
+  top: 44%;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  line-height: 1.15;
+  font-family: var(--serif)
+}
+
+/* Giant title. The italic "folio" sits in front of the folder with a black outline */
+.hero-title {
+  position: absolute;
+  left: var(--pad);
+  bottom: calc(88px + 1vh);
+  z-index: 3;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(5rem, 22.5vw, 24rem);
+  line-height: .8;
+  letter-spacing: -.03em
+}
+
+.hero-title em {
+  -webkit-text-stroke: .025em var(--black);
+  paint-order: stroke fill
+}
+
+.hero-update {
+  position: absolute;
+  right: var(--pad);
+  bottom: calc(88px + 6.5rem);
+  z-index: 3;
+  font-size: .95rem
+}
+
+.hero-year {
+  position: absolute;
+  right: var(--pad);
+  bottom: calc(88px + 1.8rem);
+  z-index: 3;
+  display: flex;
+  gap: .2rem;
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem)
+}
+
+.hero-year span {
+  width: 1.5em;
+  height: 1.5em;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--yellow);
+  border-radius: 50%;
+  color: var(--yellow);
+  line-height: 1
+}
+
+/* 3D folder: the stage gives depth, JS tilts the folder with the mouse */
+.stage {
+  position: absolute;
+  right: calc(var(--pad) - 2rem);
+  top: 8%;
+  width: min(52vw, 680px);
+  perspective: 1100px
+}
+
+.folder {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 600/480;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 6deg)) rotateY(var(--ry, -10deg));
+  transition: transform .15s ease-out
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%
+}
+
+.back {
+  transform: translateZ(0)
+}
+
+.front {
+  transform: translateZ(40px);
+  filter: drop-shadow(0 -8px 0 rgba(0, 0, 0, .15))
+}
+
+/* Logo tiles: placed so that half of each is above the front panel */
+.tiles {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d
+}
+
+.tile {
+  position: absolute;
+  top: 9cqw;
+  width: 15cqw;
+  height: 15cqw;
+  border-radius: 22%;
+  background: var(--c);
+  display: grid;
+  place-items: center;
+  padding: 2.2cqw;
+  border: .5cqw solid var(--black);
+  transform: translateZ(20px) rotate(var(--r, 0deg));
+  animation: bob 4s ease-in-out infinite
+}
+
+.tile svg {
+  width: 100%;
+  height: 100%
+}
+
+.t1 {
+  left: 12cqw;
+  --r: -8deg
+}
+
+.t2 {
+  left: 29cqw;
+  --r: 5deg;
+  animation-delay: -.8s;
+  top: 5cqw
+}
+
+.t3 {
+  left: 46cqw;
+  --r: -4deg;
+  animation-delay: -1.6s;
+  top: 8cqw
+}
+
+.t4 {
+  left: 62cqw;
+  --r: 7deg;
+  animation-delay: -2.4s;
+  top: 4cqw
+}
+
+.t5 {
+  left: 78cqw;
+  --r: -6deg;
+  animation-delay: -3.2s
+}
+
+@keyframes bob {
+  50% {
+    transform: translateZ(20px) translateY(-1.5cqw) rotate(var(--r))
+  }
+}
+
+.role {
+  position: absolute;
+  z-index: 2;
+  transform: translateZ(60px) rotate(var(--a));
+  padding: .3em 1em;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+  font-size: 2.6cqw;
+  white-space: nowrap
+}
+
+.r1 {
+  left: 20cqw;
+  top: 44cqw;
+  --a: -6deg
+}
+
+.r2 {
+  left: 60cqw;
+  top: 36cqw;
+  --a: -4deg
+}
+
+.r3 {
+  left: 42cqw;
+  top: 55cqw;
+  --a: 3deg
+}
+
+/* Moving band at the bottom */
+.band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 88px;
+  background: var(--yellow);
+  color: var(--black);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 4
+}
+
+.band-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 22s linear infinite
+}
+
+.band:hover .band-track {
+  animation-play-state: paused
+}
+
+.band-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-size: 1.6rem;
+  white-space: nowrap
+}
+
+.band-logo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  background: var(--black);
+  color: var(--yellow);
+  padding: .1em .5em;
+  border-radius: 6px
+}
+
+.band-arrow {
+  width: 60px;
+  height: 16px
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%)
+  }
+}
+
+/* the content is doubled by JS, so -50% loops seamlessly */
+
+/* ===== 3. MENU ===== */
+.nav {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--black);
+  border: 1px solid var(--white);
+  font-size: .9rem;
+  transform: translate(-50%, -200%);
+  transition: transform .4s
+}
+
+.nav.show {
+  transform: translate(-50%, 0)
+}
+
+.nav a:hover {
+  color: var(--yellow)
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem
+}
+
+.nav-hire {
+  background: var(--yellow);
+  color: var(--black) !important;
+  padding: .3rem 1rem;
+  border-radius: 999px
+}
+
+/* ===== 4. SECTIONS ===== */
+.section {
+  padding: clamp(4rem, 10vw, 8rem) var(--pad)
+}
+
+.dark {
+  background: var(--black);
+  color: var(--white)
+}
+
+.light {
+  background: var(--white);
+  color: var(--black)
+}
+
+.pink {
+  background: var(--pink);
+  color: var(--black)
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1;
+  margin-bottom: 1rem
+}
+
+.lead {
+  max-width: 36rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.3rem
+}
+
+/* Scroll-in animation (JS adds .in) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s, transform .7s
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none
+}
+
+/* Tilt cards (JS sets --tx / --ty) */
+.tilt {
+  transform: perspective(800px) rotateX(var(--tx, 0deg)) rotateY(var(--ty, 0deg));
+  transition: transform .15s
+}
+
+.tilt.reveal.in {
+  transform: perspective(800px) rotateX(var(--tx, 0deg)) rotateY(var(--ty, 0deg))
+}
+
+.skills,
+.works {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem
+}
+
+.skills .tilt {
+  background: var(--c);
+  color: var(--black);
+  padding: 2rem 1.6rem;
+  border-radius: 20px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+
+.skills h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1
+}
+
+.photo {
+  aspect-ratio: 4/5;
+  background: var(--yellow);
+  border-radius: 20px;
+  border: 2px solid var(--black);
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.facts li {
+  padding: .7rem 0;
+  border-top: 1px solid var(--black)
+}
+
+.facts b {
+  display: inline-block;
+  width: 8rem;
+  font-weight: 500
+}
+
+.works {
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr))
+}
+
+.project {
+  display: block;
+  padding: 1rem;
+  border: 1px solid var(--white);
+  border-radius: 20px
+}
+
+.project:hover {
+  border-color: var(--c)
+}
+
+.project-img {
+  aspect-ratio: 16/10;
+  border-radius: 12px;
+  background: var(--c);
+  margin-bottom: 1rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--black);
+  overflow: hidden
+}
+
+.project-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.project p {
+  opacity: .8
+}
+
+.rows>div {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--black)
+}
+
+.rows>div:last-child {
+  border-bottom: 1px solid var(--black)
+}
+
+.rows dt {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.1
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0
+}
+
+.col {
+  padding: 2rem;
+  border: 1px solid var(--white);
+  border-radius: 20px
+}
+
+.col.me {
+  background: var(--green);
+  color: var(--black);
+  border-color: var(--green)
+}
+
+.col h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 1rem
+}
+
+.col p {
+  padding: .6rem 0;
+  border-top: 1px solid currentColor
+}
+
+.mail {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  border-bottom: 2px solid var(--black);
+  display: inline-block
+}
+
+form {
+  display: grid;
+  gap: 1.1rem
+}
+
+label {
+  display: grid;
+  gap: .3rem;
+  font-weight: 500
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: .8rem 1rem;
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--black)
+}
+
+.btn {
+  justify-self: start;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  border: 2px solid var(--black);
+  background: var(--black);
+  color: var(--white);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform .2s, background .2s
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: var(--red)
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem var(--pad);
+  font-size: .9rem;
+  background: var(--black)
+}
+
+/* ===== 5. PHONES & TABLETS (desktop and laptop styles above are untouched) ===== */
+@media(max-width:800px) {
+
+  /* FRONT PAGE: on phones the items stack top to bottom instead of floating over each other */
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0
+  }
+
+  .hero-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .4rem 1rem;
+    font-size: .75rem;
+    overflow-wrap: anywhere
+  }
+
+  .stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(88vw, 440px);
+    margin: 2.5rem auto 0
+  }
+
+  .role {
+    font-size: 3.4cqw
+  }
+
+  /* bigger tags so they stay readable */
+
+  .hero-intro {
+    position: static;
+    margin-top: 1.8rem;
+    font-size: 1.3rem
+  }
+
+  .hero-title {
+    position: static;
+    margin-top: .8rem;
+    font-size: 21vw;
+    line-height: .9
+  }
+
+  .hero-update {
+    display: none
+  }
+
+  .hero-year {
+    position: static;
+    align-self: flex-end;
+    margin: .8rem 0 1.4rem;
+    font-size: 1.4rem
+  }
+
+  /* Moving band: sits at the bottom, edge to edge */
+  .band {
+    position: relative;
+    margin: auto calc(var(--pad) * -1) 0;
+    height: 64px
+  }
+
+  .band-item {
+    font-size: 1.1rem;
+    gap: 1rem;
+    padding-right: 1rem
+  }
+
+  .band-logo {
+    font-size: 1.2rem
+  }
+
+  .band-arrow {
+    width: 40px
+  }
+
+  /* MENU: fits the screen width and scrolls sideways if needed */
+  .nav {
+    width: calc(100vw - 1.5rem);
+    max-width: 480px;
+    gap: 1rem;
+    padding: .55rem 1rem;
+    font-size: .85rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none
+  }
+
+  .nav-hire {
+    margin-left: auto
+  }
+
+  /* SECTIONS */
+  .section {
+    padding-block: 4rem
+  }
+
+  .two,
+  .compare,
+  .rows>div {
+    grid-template-columns: 1fr;
+    gap: 1rem
+  }
+
+  .two {
+    gap: 2.5rem
+  }
+
+  .photo {
+    aspect-ratio: 1/1
+  }
+
+  .facts b {
+    width: 6.5rem
+  }
+
+  .skills .tilt {
+    min-height: 150px
+  }
+
+  .col {
+    padding: 1.4rem
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center
+  }
+}
+
+/* Turn animations off for users who ask for it */
+@media(prefers-reduced-motion:reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none
+  }
+}
