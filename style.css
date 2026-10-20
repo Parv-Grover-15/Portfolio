@@ -91,24 +91,9 @@ ul {
   paint-order: stroke fill
 }
 
-.hero-update {
-  position: absolute;
-  right: var(--pad);
-  bottom: calc(88px + 6.5rem);
-  z-index: 3;
-  font-size: .95rem
-}
 
-.hero-year {
-  position: absolute;
-  right: var(--pad);
-  bottom: calc(88px + 1.8rem);
-  z-index: 3;
-  display: flex;
-  gap: .2rem;
-  font-family: var(--serif);
-  font-size: clamp(1.4rem, 2.6vw, 2.4rem)
-}
+
+
 
 .hero-year span {
   width: 1.5em;
@@ -770,3 +755,20 @@ textarea {
     transform: none
   }
 }
+
+/* 3D avatar box (replaces the photo box) */
+.avatar{aspect-ratio:4/5;background:var(--yellow);border:2px solid var(--black);border-radius:20px;position:relative;overflow:hidden}
+.avatar canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+@media(max-width:800px){.avatar{aspect-ratio:1/1}}
+
+/* Skills: 3 cards per row (2 on tablets, 1 on phones) */
+.skills { grid-template-columns: repeat(3, 1fr); }
+.skills .tilt { gap: 1rem; }   /* keeps the title and text from touching on long cards */
+
+@media (max-width: 900px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .skills { grid-template-columns: 1fr; } }
+
+/* Show project images in full, whatever their shape */
+.project-img:has(img) { aspect-ratio: auto; }          /* box takes the image's own shape */
+.project-img img { position: static; height: auto; object-fit: contain; }
+.project-img:has(img) span { display: none; }          /* hides the "Add image" label once an image exists */

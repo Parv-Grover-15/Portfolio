@@ -29,13 +29,12 @@
 
     <!-- Contact row (EDIT these four) -->
     <ul class="hero-contact">
-      <li>you@example.com</li>
-      <li>@yourhandle</li>
-      <li>behance.net/yourname</li>
-      <li>+00 000 000 0000</li>
+      <li>parvgrover15@gmail.com</li>
+      <li>https://github.com/Parv-Grover-15</li>
+      <li>www.linkedin.com/in/parv-grover-372b9342b</li>
     </ul>
 
-    <p class="hero-intro">Parv Grover’s<br><em>Selected</em> Work</p>
+    <p class="hero-intro">Parv Grover’s<br></p>
 
     <!-- The 3D folder. Layers (back to front): back panel, logo tiles, front panel, tags -->
     <div class="stage">
@@ -86,8 +85,7 @@
     </div>
 
     <h1 class="hero-title">Port<em>folio</em></h1>
-    <p class="hero-update">Update v.1.0</p>
-    <p class="hero-year" aria-label="2026"><span>2</span><span>0</span><span>2</span><span>6</span></p>
+
 
     <!-- Moving band (JS copies the item to fill the whole width) -->
     <div class="band" aria-hidden="true">
@@ -130,6 +128,14 @@
             <h3>Graphic design</h3>
             <p>UI/UX, branding, posters</p>
           </div>
+          <div class="tilt reveal" style="--c:#FFDC4D">
+            <h3>Prompt Engineering</h3>
+            <p>Writing structured prompts to get useful results from AI models.</p>
+          </div>
+          <div class="tilt reveal" style="--c:#D44B43">
+            <h3>AI Tools & Workflows</h3>
+            <p>Using AI tools effectively to complete development tasks.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -138,19 +144,18 @@
     <section class="section light" id="about">
       <div class="wrap two">
         <!-- Photo box: put your photo at images/me.jpg -->
-        <div class="photo reveal"><img src="images/me.jpg" alt="Parv Grover" onerror="this.remove()"><span>Your
-            photo</span></div>
-        <div class="reveal">
-          <h2>About me</h2>
-          <p class="lead">Write two or three sentences about who you are, where you are based and what you care about
-            when you build things.</p>
-          <p class="lead">Add a second paragraph: your background, education, or how you started.</p>
-          <ul class="facts">
-            <li><b>Based in</b> Your city</li>
-            <li><b>Experience</b> Your years</li>
-            <li><b>Languages</b> Your languages</li>
-          </ul>
-        </div>
+        <div class="avatar reveal" id="avatar" role="img" aria-label="3D developer avatar">
+      </div>
+      <div class="reveal">
+        <h2>About me</h2>
+        <p class="lead">I am a CS student who loves to code, and build things.</p>
+        <p class="lead">I use AI to increase productivity and reduce time, not depends on the AI for the whole code.</p>
+        <ul class="facts">
+          <li><b>Based in</b> India</li>
+          <li><b>Education</b> Enrolled in CS with AI(In College)</li>
+          <li><b>Languages</b> English and Hindi</li>
+        </ul>
+      </div>
       </div>
     </section>
 
@@ -162,16 +167,18 @@
         <p class="lead reveal">Selected projects.</p>
         <div class="works">
           <a href="#" class="project tilt reveal" style="--c:#FFDC4D">
-            <div class="project-img"><img src="images/work-1.jpg" alt="" onerror="this.remove()"><span>Add image</span>
+            <div class="project-img"><img src="images/work-1.png" alt="" onerror="this.remove()"><span>Add image</span>
             </div>
-            <h3>Project name</h3>
-            <p>Short description. Tools used.</p>
+            <h3>Sale poster</h3>
+            <p>I created a sale poster that says 50% off , and main idea is to keep it simple. </p>
+            <p>Tool used :- Figma</p>
           </a>
           <a href="#" class="project tilt reveal" style="--c:#FF8EBA">
-            <div class="project-img"><img src="images/work-2.jpg" alt="" onerror="this.remove()"><span>Add image</span>
+            <div class="project-img"><img src="images/work-2.png" alt="" onerror="this.remove()"><span>Add image</span>
             </div>
-            <h3>Project name</h3>
-            <p>Short description. Tools used.</p>
+            <h3>Youtube Thumbnail</h3>
+            <p>I created a youtube thumbnail that shows a tech youtuber, reviewing a smart phone.</p>
+            <p>Tool used :- Figma</p>
           </a>
           <a href="#" class="project tilt reveal" style="--c:#53B080">
             <div class="project-img"><img src="images/work-3.jpg" alt="" onerror="this.remove()"><span>Add image</span>
@@ -264,6 +271,8 @@
 
   <footer class="footer"><span>© <span id="year"></span> Parv Grover</span><a href="#top">Back to top</a></footer>
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="avatar.js"></script>
 </body>
 
 </html>
